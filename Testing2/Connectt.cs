@@ -14,15 +14,15 @@ namespace Testing2
         static string Build_2_Tsql_CreateTables()
         {
             return @"
- DROP TABLE IF EXISTS users;
-    CREATE TABLE users
+ DROP TABLE IF EXISTS bookings;
+    CREATE TABLE bookings
 (
-    userID int not null identity primary key,
-    username nvarchar(128) not null, 
-    password nvarchar(128) not null,
-    type nvarchar(128) not null,
-    groupID int not null,
-    email nvarchar(128) not null
+    IDuser int not null,
+    IDproduct int not null, 
+    reservationDate date not null,
+    deliveryDate date not null,
+    location nvarchar(128) not null,
+    confirmation bit not null
 );
  ";
         }
@@ -30,16 +30,16 @@ namespace Testing2
         {
             return @"
  SELECT
-       userID,
-        username,
-        password,
-        type,
-        groupID,
-        email
+      IDuser,
+IDproduct,
+confirmation,
+deliveryDate,
+reservationDate,
+location
     FROM
-       users
+       bookings
     ORDER BY
-       userID;
+       IDuser;
  ";
         }
         public static void Submit_Tsql_NonQuery(
@@ -80,14 +80,20 @@ namespace Testing2
                 {
                     while (reader.Read())
                     {
-                        Console.WriteLine("{0} , {1}, {2},{3},{4},{5} ",
-                          reader.GetValue(reader.GetOrdinal("userID")),
-                           reader.GetValue(reader.GetOrdinal("username")),
-                           reader.GetValue(reader.GetOrdinal("password")),
+                        //Console.WriteLine("{0} , {1}, {2} ",
+                        //  reader.GetValue(reader.GetOrdinal("productID")),
+                        //   reader.GetValue(reader.GetOrdinal("productName")),
+                        //   reader.GetValue(reader.GetOrdinal("quantity")));
 
-                           reader.GetValue(reader.GetOrdinal("type")),
-                           reader.GetValue(reader.GetOrdinal("groupID")),
-                           reader.GetValue(reader.GetOrdinal("email")));
+
+                        Console.WriteLine("{0} , {1}, {2},{3},{4},{5}",
+                          reader.GetValue(reader.GetOrdinal("IDuser")),
+                           reader.GetValue(reader.GetOrdinal("IDproduct")),
+                           reader.GetValue(reader.GetOrdinal("confirmation")),
+                           reader.GetValue(reader.GetOrdinal("deliveryDate")),
+                           reader.GetValue(reader.GetOrdinal("reservationDate")),
+                           reader.GetValue(reader.GetOrdinal("location")));
+
                     }
                 }
             }
@@ -107,7 +113,7 @@ namespace Testing2
                     connection.Open();
 
 
-                    //using (DbCommand command = new SqlCommand("Insert into users (username,password,type,groupID,email) values ('ana','admin','admin',3,'t-anturc@microsoft.com');"))
+                    //using (DbCommand command = new SqlCommand("delete from users where userID>5;"))
                     //{
                     //    command.Connection = connection;
                     //    command.ExecuteNonQuery();
@@ -115,7 +121,7 @@ namespace Testing2
 
 
 
-                    //Submit_Tsql_NonQuery(connection, "2 - Create-Tables",
+                    // Submit_Tsql_NonQuery(connection, "2 - Create-Tables",
                     //Build_2_Tsql_CreateTables());
 
 

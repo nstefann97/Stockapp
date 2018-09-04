@@ -83,14 +83,14 @@ namespace Testing2
             foreach (DataRow row in results.Rows)
             {
                 string privilege = row.Field<string>(3);
-                if (privilege == "admin" && user == row.Field<string>(1))
+                if (privilege == "admin" && user == row.Field<string>(1)&&password==row.Field<string>(2))
                 {
-                    Form2 f2 = new Form2(textBox1.Text);
+                    Form2 f2 = new Form2(row.Field<int>(0).ToString(),row.Field<string>(5));
                     this.Hide();
                     f2.ShowDialog();
                     this.Close();
                 }
-                if (privilege == "client" && user == row.Field<string>(1))
+                if (privilege == "client" && user == row.Field<string>(1)&&password == row.Field<string>(2))
                 {
                     //Form3 f3 = new Form3();
                     //this.Hide();
