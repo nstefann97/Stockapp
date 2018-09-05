@@ -85,7 +85,7 @@ namespace Testing2
                 string privilege = row.Field<string>(3);
                 if (privilege == "admin" && user == row.Field<string>(1)&&password==row.Field<string>(2))
                 {
-                    Form2 f2 = new Form2(row.Field<int>(0).ToString(),row.Field<string>(5));
+                    Form2 f2 = new Form2(row.Field<string>(1),row.Field<int>(0).ToString(),row.Field<string>(5));
                     this.Hide();
                     f2.ShowDialog();
                     this.Close();

@@ -113,11 +113,11 @@ location
                     connection.Open();
 
 
-                    //using (DbCommand command = new SqlCommand("delete from users where userID>5;"))
-                    //{
-                    //    command.Connection = connection;
-                    //    command.ExecuteNonQuery();
-                    //}
+                    using (DbCommand command = new SqlCommand("insert into users (username,password,type,groupID,email) values ('ioana','admin','admin',4,'t-anpirv@microsoft.com');"))
+                    {
+                        command.Connection = connection;
+                        command.ExecuteNonQuery();
+                    }
 
 
 
