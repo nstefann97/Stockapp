@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.DirectoryServices.AccountManagement;
+using System.Data.SqlClient;
+using System.Data.Common;
+using Microsoft.Office.Interop.Outlook;
 
 namespace Testing2
 {
@@ -37,7 +39,7 @@ namespace Testing2
             int startleft = 43;
             int starttop = 98;
             int validationOfCheckings = 0;
-            button1.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, iduser,email); };
+            button1.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, iduser, email); };
             foreach (DataRow row in dt.Rows)
             {
 
@@ -64,7 +66,7 @@ namespace Testing2
                     Label l1 = new Label();
                     Label l2 = new Label();
                     l1.Text = row.Field<string>(0);
-                    l2.Text = row.Field<int>(1)>0? row.Field<int>(1).ToString():"Not available";
+                    l2.Text = row.Field<int>(1) > 0 ? row.Field<int>(1).ToString() : "Not available";
                     l1.ForeColor = Color.White;
                     l2.ForeColor = Color.White;
                     p.Controls.Add(l1);
@@ -93,7 +95,7 @@ namespace Testing2
                             reserve.ForeColor = Color.White;
                             p.Controls.Add(reserve);
                             check.Add(reserve);
-                          
+
 
 
                             //Button b1 = new Button();
@@ -147,6 +149,37 @@ namespace Testing2
                                 l1.MouseEnter += new EventHandler(Calendar_MouseEnter);
                                 l1.MouseLeave += new EventHandler(Calendar_MouseLeave);
 
+
+                                Button remove = new Button();
+                                remove.Size = new Size(98, 21);
+                                remove.Location = new Point(3, 52);
+                                remove.Text = "Cancel order";
+                                remove.ForeColor = Color.White;
+                                remove.BackColor = Color.LightSlateGray;
+                                p.Controls.Add(remove);
+                                remove.Click += (sender, EventArgs) =>
+                                  {
+                                      using (var connectionRemove = new SqlConnection(cb.ConnectionString))
+                                      {
+                                          connectionRemove.Open();
+
+                                          using (DbCommand command = new SqlCommand("Delete from bookings where IDuser='" + iduser + "' and IDproduct='" + row.Field<int>(2) + "';"))
+                                          {
+                                              command.Connection = connectionRemove;
+                                              command.ExecuteNonQuery();
+                                          }
+
+                                          using (DbCommand command = new SqlCommand("Update products set quantity=quantity+1 where productID='" + row.Field<int>(2) + "';"))
+                                          {
+                                              command.Connection = connectionRemove;
+                                              command.ExecuteNonQuery();
+                                          }
+
+                                      }
+
+
+                                  };
+
                             }
                             else
                             {
@@ -175,12 +208,64 @@ namespace Testing2
 
 
                                             using (DbCommand commandUpdate = new SqlCommand("update bookings set confirmation='True' where IDuser='" + iduser + "' and IDproduct='" + row.Field<int>(2) + "';"))
-                                        //using (DbCommand commandUpdate = new SqlCommand("delete from bookings where IDuser='"+nameuser+"' and IDproduct='"+row.Field<int>(2)+"';"))
-                                        {
+                                    //using (DbCommand commandUpdate = new SqlCommand("delete from bookings where IDuser='"+nameuser+"' and IDproduct='"+row.Field<int>(2)+"';"))
+                                    {
                                                 commandUpdate.Connection = connectionUpdate;
                                                 commandUpdate.ExecuteNonQuery();
                                             }
                                         }
+                                // Create the Outlook application by using inline initialization.
+                                Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
+
+                                //Create the new message by using the simplest approach.
+                                Microsoft.Office.Interop.Outlook.MailItem oMsg = (MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+
+                                //Add a recipient.
+                                // TODO: Change the following recipient where appropriate.
+                                Microsoft.Office.Interop.Outlook.Recipient oRecip = (Microsoft.Office.Interop.Outlook.Recipient)oMsg.Recipients.Add("t-stnast@microsoft.com");
+                                        oRecip.Resolve();
+
+                                //Set the basic properties.
+                                oMsg.Subject = "Confirmation";
+                                        oMsg.Body = "This is a confirmation regarding the reservation of " + System.Environment.NewLine;
+
+                                        using (var connection2 = new SqlConnection(cb.ConnectionString))
+                                        {
+                                            connection2.Open();
+
+                                            SqlCommand cmd2 = new SqlCommand("select productName from products where productID='" + row.Field<int>(2) + "';", connection2);
+                                            SqlDataReader reader2 = cmd2.ExecuteReader();
+                                            reader2.Read();
+                                            string Message = "- " + reader2.GetString(0) + System.Environment.NewLine;
+                                            oMsg.Body += Message;//to be fixed
+                                        }
+
+
+
+                                //Add an attachment.
+                                // TODO: change file path where appropriate
+                                //String sSource = "C:\\setupxlg.txt";
+                                //String sDisplayName = "MyFirstAttachment";
+                                //int iPosition = (int)oMsg.Body.Length + 1;
+                                //int iAttachType = (int)Outlook.OlAttachmentType.olByValue;
+                                //Microsoft.Office.Interop.Outlook.Attachment oAttach = oMsg.Attachments.Add(sSource, iAttachType, iPosition, sDisplayName);
+
+                                // If you want to, display the message.
+                                // oMsg.Display(true);  //modal
+
+                                //Send the message.
+                                oMsg.Save();
+                                        oMsg.Send();
+
+                                //Explicitly release objects.
+                                oRecip = null;
+                                //oAttach = null;
+                                oMsg = null;
+                                        oApp = null;
+
+
+
+
                                     };
                                 }
                                 else
@@ -235,10 +320,10 @@ namespace Testing2
 
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
-        private void buttonR_Click(object sender, EventArgs e, string qs,string email)
+        private void buttonR_Click(object sender, EventArgs e, string qs, string email)
         {
             //foreach (Label l in allNames)
             //    Console.WriteLine(l.Text);
@@ -283,3 +368,7 @@ namespace Testing2
         }
     }
 }
+
+
+
+

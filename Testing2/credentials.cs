@@ -45,7 +45,7 @@ namespace Testing2
                         foreach (string productName in objectsReserved)
 
                         {
-                            using (DbCommand command = new SqlCommand("Insert into bookings (IDuser,IDproduct,reservationDate,deliveryDate,location,confirmation) values ('" + qs + "','" + productName + "',getDate()-4,getDate()-1,'Galati',0);"))
+                            using (DbCommand command = new SqlCommand("Insert into bookings (IDuser,IDproduct,reservationDate,deliveryDate,location,confirmation) values ('" + qs + "','" + productName + "',getDate(),getDate()+3,'Galati',0);"))
                             {
                                 command.Connection = connection;
                                 command.ExecuteNonQuery();
@@ -60,59 +60,6 @@ namespace Testing2
                         }
 
                     }
-
-                    // Create the Outlook application by using inline initialization.
-                    Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
-
-                    //Create the new message by using the simplest approach.
-                    Microsoft.Office.Interop.Outlook.MailItem oMsg = (MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
-
-                    //Add a recipient.
-                    // TODO: Change the following recipient where appropriate.
-                    Microsoft.Office.Interop.Outlook.Recipient oRecip = (Microsoft.Office.Interop.Outlook.Recipient)oMsg.Recipients.Add("t-stnast@microsoft.com");
-                    oRecip.Resolve();
-
-                    //Set the basic properties.
-                    oMsg.Subject = "Confirmation";
-                    oMsg.Body = "This is a confirmation regarding the reservation of " + System.Environment.NewLine;
-                    foreach (string productName in objectsReserved)
-                    {
-
-                        using (var connection = new SqlConnection(cb.ConnectionString))
-                        {
-                            connection.Open();
-                            
-                            SqlCommand cmd = new SqlCommand("select productName from products where productID='" + productName + "';", connection);
-                            SqlDataReader reader = cmd.ExecuteReader();
-                            reader.Read();
-                            string Message = "- " + reader.GetString(0) + System.Environment.NewLine;
-                            oMsg.Body += Message;//to be fixed
-                        }
-                    }
-
-
-                    //Add an attachment.
-                    // TODO: change file path where appropriate
-                    //String sSource = "C:\\setupxlg.txt";
-                    //String sDisplayName = "MyFirstAttachment";
-                    //int iPosition = (int)oMsg.Body.Length + 1;
-                    //int iAttachType = (int)Outlook.OlAttachmentType.olByValue;
-                    //Microsoft.Office.Interop.Outlook.Attachment oAttach = oMsg.Attachments.Add(sSource, iAttachType, iPosition, sDisplayName);
-
-                    // If you want to, display the message.
-                    // oMsg.Display(true);  //modal
-
-                    //Send the message.
-                    oMsg.Save();
-                    oMsg.Send();
-
-                    //Explicitly release objects.
-                    oRecip = null;
-                    //oAttach = null;
-                    oMsg = null;
-                    oApp = null;
-
-
 
 
                     this.Close();

@@ -92,13 +92,13 @@ namespace Testing2
                 }
                 if (privilege == "client" && user == row.Field<string>(1)&&password == row.Field<string>(2))
                 {
-                    //Form3 f3 = new Form3();
-                    //this.Hide();
-                    //f3.ShowDialog();
-                    //this.Close();
-                    ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/866a9cf3-4104-48e1-ba30-cfebd6a05f74");
-                    Process.Start(sInfo);
+                    Form3 f3 = new Form3();
+                    this.Hide();
+                    f3.ShowDialog();
                     this.Close();
+                    //ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/866a9cf3-4104-48e1-ba30-cfebd6a05f74");
+                    //Process.Start(sInfo);
+                    //this.Close();
                 }
             }
 
