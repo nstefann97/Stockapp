@@ -1,6 +1,6 @@
 ﻿namespace Testing2
 {
-    partial class Form2
+    partial class ProductsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsForm));
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.exitIconLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(205, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome,";
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.usernameLabel.Location = new System.Drawing.Point(205, 56);
+            this.usernameLabel.Name = "label1";
+            this.usernameLabel.Size = new System.Drawing.Size(141, 32);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.Text = "Welcome,";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(343, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 32);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.welcomeLabel.Location = new System.Drawing.Point(343, 56);
+            this.welcomeLabel.Name = "label2";
+            this.welcomeLabel.Size = new System.Drawing.Size(93, 32);
+            this.welcomeLabel.TabIndex = 1;
+            this.welcomeLabel.Text = "label2";
             // 
             // bunifuCustomLabel1
             // 
@@ -91,15 +91,15 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(285, 475);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 54);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Request";
-            this.button1.UseVisualStyleBackColor = false;
+            this.loginButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.loginButton.Location = new System.Drawing.Point(285, 475);
+            this.loginButton.Name = "button1";
+            this.loginButton.Size = new System.Drawing.Size(151, 54);
+            this.loginButton.TabIndex = 3;
+            this.loginButton.Text = "Request";
+            this.loginButton.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -115,14 +115,14 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(30, 547);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(619, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "If you no longer see certain products, you either requested them or you don\'t hav" +
+            this.exitIconLabel.AutoSize = true;
+            this.exitIconLabel.BackColor = System.Drawing.Color.Transparent;
+            this.exitIconLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.exitIconLabel.Location = new System.Drawing.Point(30, 547);
+            this.exitIconLabel.Name = "label4";
+            this.exitIconLabel.Size = new System.Drawing.Size(619, 17);
+            this.exitIconLabel.TabIndex = 6;
+            this.exitIconLabel.Text = "If you no longer see certain products, you either requested them or you don\'t hav" +
     "e acces to them";
             // 
             // Form2
@@ -131,12 +131,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(673, 581);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.exitIconLabel);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.welcomeLabel);
+            this.Controls.Add(this.usernameLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";
@@ -149,13 +149,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.Label welcomeLabel;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label exitIconLabel;
     }
 }

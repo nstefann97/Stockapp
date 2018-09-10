@@ -14,71 +14,81 @@ using Microsoft.Office.Interop.Outlook;
 
 namespace Testing2
 {
-    public partial class Form2 : Form
+    public partial class ProductsForm : Form
     {
-        List<ProductInstance> prodList = new List<ProductInstance>();
+        List<ProductInstance> productList = new List<ProductInstance>();
         //List<TextBox> allAmounts = new List<TextBox>();
         List<string> allNames = new List<string>();
-        List<CheckBox> check = new List<CheckBox>();
-        public Form2(string nameuser, string iduser, string email)
+        List<CheckBox> checkboxes = new List<CheckBox>();
+        public ProductsForm(string username, string userID, string email)
         {
             InitializeComponent();
-            label2.Text = nameuser + " !";
-            var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "prjserver.database.windows.net";
-            cb.UserID = "serveradmin";
-            cb.Password = "Azurefinalapp4";
-            cb.InitialCatalog = "projectTesting";
-            DataTable dt = new DataTable();
-            string query = "Select productName, quantity,productID from products;";
-            using (var connection = new SqlConnection(cb.ConnectionString))
+            welcomeLabel.Text = username + " !";
+
+            var connectionBuilder = new SqlConnectionStringBuilder();
+            connectionBuilder.DataSource = "prjserver.database.windows.net";
+            connectionBuilder.UserID = "serveradmin";
+            connectionBuilder.Password = "Azurefinalapp4";
+            connectionBuilder.InitialCatalog = "projectTesting";
+            DataTable dataTable = new DataTable();
+
+            string query = "select productName, quantity, productID from products;";
+
+            using (var connection = new SqlConnection(connectionBuilder.ConnectionString))
             using (var command = new SqlCommand(query, connection))
             using (var dataAdapter = new SqlDataAdapter(command))
-                dataAdapter.Fill(dt);
+                dataAdapter.Fill(dataTable);
+
             int counter = 1;
-            int startleft = 43;
-            int starttop = 98;
+            int startLeft = 43;
+            int startTop = 98;
             int validationOfCheckings = 0;
-            button1.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, iduser, email); };
-            foreach (DataRow row in dt.Rows)
+            loginButton.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, userID, email); };
+
+            foreach (DataRow row in dataTable.Rows)
             {
 
-                cb = new SqlConnectionStringBuilder();
-                cb.DataSource = "prjserver.database.windows.net";
-                cb.UserID = "serveradmin";
-                cb.Password = "Azurefinalapp4";
-                cb.InitialCatalog = "projectTesting";
-                cb.MultipleActiveResultSets = true;
+                connectionBuilder = new SqlConnectionStringBuilder();
+                connectionBuilder.DataSource = "prjserver.database.windows.net";
+                connectionBuilder.UserID = "serveradmin";
+                connectionBuilder.Password = "Azurefinalapp4";
+                connectionBuilder.InitialCatalog = "projectTesting";
+                connectionBuilder.MultipleActiveResultSets = true;
 
-                using (var connection = new SqlConnection(cb.ConnectionString))
+                using (var connection = new SqlConnection(connectionBuilder.ConnectionString))
                 {
                     connection.Open();
 
-                    SqlCommand cmd = new SqlCommand("select * from bookings where IDuser='" + iduser + "' and IDproduct='" + row.Field<int>(2) + "';", connection);
+                    string productName = row.Field<string>(0);
+                    int productsNumber = row.Field<int>(1);
+
+                    SqlCommand cmd = new SqlCommand("select * from bookings where IDuser='" +
+                        userID + "' and IDproduct='" + row.Field<int>(2) + "';", connection);
                     SqlDataReader reader = cmd.ExecuteReader();
-                    Panel p = new Panel();
+
+                    Panel p = new Panel(); //what is this
                     p.BorderStyle = BorderStyle.FixedSingle;
                     p.Name = "panel" + counter;
                     p.Size = new Size(120, 80);
-                    p.Location = new Point((startleft + (counter - 1) * 160), starttop);
+                    p.Location = new Point((startLeft + (counter - 1) * 160), startTop);
                     p.BackColor = Color.Transparent;
                     this.Controls.Add(p);
-                    Label l1 = new Label();
-                    Label l2 = new Label();
-                    l1.Text = row.Field<string>(0);
-                    l2.Text = row.Field<int>(1) > 0 ? row.Field<int>(1).ToString() : "Not available";
-                    l1.ForeColor = Color.White;
-                    l2.ForeColor = Color.White;
-                    p.Controls.Add(l1);
-                    p.Controls.Add(l2);
-                    l2.Top = l1.Top + 25;
 
-                    if (row.Field<int>(1) > 0)
+                    Label productNameLabel = new Label(); //l1
+                    Label productsNumberLabel = new Label(); //l2
+
+                    productNameLabel.Text = productName;
+                    productsNumberLabel.Text = productsNumber > 0 ? productsNumber.ToString() : "Not available";
+                    productNameLabel.ForeColor = Color.White;
+                    productsNumberLabel.ForeColor = Color.White;
+                    p.Controls.Add(productNameLabel);
+                    p.Controls.Add(productsNumberLabel);
+                    productsNumberLabel.Top = productNameLabel.Top + 25;
+
+                    if (productsNumber > 0)
                         if (!reader.Read())
                         {
                             // The command returns Row(s)
-
-
                             allNames.Add(row.Field<int>(2).ToString());
 
                             //TextBox t = new TextBox();
@@ -94,7 +104,7 @@ namespace Testing2
                             reserve.Text = "Reserve";
                             reserve.ForeColor = Color.White;
                             p.Controls.Add(reserve);
-                            check.Add(reserve);
+                            checkboxes.Add(reserve);
 
 
 
@@ -146,8 +156,8 @@ namespace Testing2
 
                                 this.Controls.Add(monthCalendar1);
                                 monthCalendar1.Hide();
-                                l1.MouseEnter += new EventHandler(Calendar_MouseEnter);
-                                l1.MouseLeave += new EventHandler(Calendar_MouseLeave);
+                                productNameLabel.MouseEnter += new EventHandler(Calendar_MouseEnter);
+                                productNameLabel.MouseLeave += new EventHandler(Calendar_MouseLeave);
 
 
                                 Button remove = new Button();
@@ -159,11 +169,11 @@ namespace Testing2
                                 p.Controls.Add(remove);
                                 remove.Click += (sender, EventArgs) =>
                                   {
-                                      using (var connectionRemove = new SqlConnection(cb.ConnectionString))
+                                      using (var connectionRemove = new SqlConnection(connectionBuilder.ConnectionString))
                                       {
                                           connectionRemove.Open();
 
-                                          using (DbCommand command = new SqlCommand("Delete from bookings where IDuser='" + iduser + "' and IDproduct='" + row.Field<int>(2) + "';"))
+                                          using (DbCommand command = new SqlCommand("Delete from bookings where IDuser='" + userID + "' and IDproduct='" + row.Field<int>(2) + "';"))
                                           {
                                               command.Connection = connectionRemove;
                                               command.ExecuteNonQuery();
@@ -195,19 +205,19 @@ namespace Testing2
                                     confirm.Click += (sender, EventArgs) =>
                                     {
 
-                                        cb = new SqlConnectionStringBuilder();
-                                        cb.DataSource = "prjserver.database.windows.net";
-                                        cb.UserID = "serveradmin";
-                                        cb.Password = "Azurefinalapp4";
-                                        cb.InitialCatalog = "projectTesting";
-                                        cb.MultipleActiveResultSets = true;
+                                        connectionBuilder = new SqlConnectionStringBuilder();
+                                        connectionBuilder.DataSource = "prjserver.database.windows.net";
+                                        connectionBuilder.UserID = "serveradmin";
+                                        connectionBuilder.Password = "Azurefinalapp4";
+                                        connectionBuilder.InitialCatalog = "projectTesting";
+                                        connectionBuilder.MultipleActiveResultSets = true;
 
-                                        using (var connectionUpdate = new SqlConnection(cb.ConnectionString))
+                                        using (var connectionUpdate = new SqlConnection(connectionBuilder.ConnectionString))
                                         {
                                             connectionUpdate.Open();
 
 
-                                            using (DbCommand commandUpdate = new SqlCommand("update bookings set confirmation='True' where IDuser='" + iduser + "' and IDproduct='" + row.Field<int>(2) + "';"))
+                                            using (DbCommand commandUpdate = new SqlCommand("update bookings set confirmation='True' where IDuser='" + userID + "' and IDproduct='" + row.Field<int>(2) + "';"))
                                     //using (DbCommand commandUpdate = new SqlCommand("delete from bookings where IDuser='"+nameuser+"' and IDproduct='"+row.Field<int>(2)+"';"))
                                     {
                                                 commandUpdate.Connection = connectionUpdate;
@@ -229,7 +239,7 @@ namespace Testing2
                                 oMsg.Subject = "Confirmation";
                                         oMsg.Body = "This is a confirmation regarding the reservation of " + System.Environment.NewLine;
 
-                                        using (var connection2 = new SqlConnection(cb.ConnectionString))
+                                        using (var connection2 = new SqlConnection(connectionBuilder.ConnectionString))
                                         {
                                             connection2.Open();
 
@@ -333,7 +343,7 @@ namespace Testing2
 
             List<string> objectsReserved = new List<string>();
 
-            var combined = allNames.Zip(check, (n, w) => new { Name = n, Checked = w.Checked });
+            var combined = allNames.Zip(checkboxes, (n, w) => new { Name = n, Checked = w.Checked });
             foreach (var iterate in combined)
             {
                 if (iterate.Checked)
@@ -360,7 +370,7 @@ namespace Testing2
         private void button2_Click(object sender, EventArgs e)
         {
 
-            Form1 newLogin = new Form1();
+            LoginForm newLogin = new LoginForm();
             this.Hide();
             newLogin.ShowDialog();
             this.Close();
