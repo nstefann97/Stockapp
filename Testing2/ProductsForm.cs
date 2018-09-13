@@ -59,8 +59,8 @@ namespace Testing2
                 {
                     connection.Open();
 
-                    string productName = row.Field<string>(0);
-                    int productsNumber = row.Field<int>(1);
+                    string productID = row.Field<string>(0);
+                    int productsQuantity = row.Field<int>(1);
 
                     SqlCommand cmd = new SqlCommand("select * from bookings where IDuser='" +
                         userID + "' and IDproduct='" + row.Field<int>(2) + "';", connection);
@@ -77,15 +77,15 @@ namespace Testing2
                     Label productNameLabel = new Label(); //l1
                     Label productsNumberLabel = new Label(); //l2
 
-                    productNameLabel.Text = productName;
-                    productsNumberLabel.Text = productsNumber > 0 ? productsNumber.ToString() : "Not available";
+                    productNameLabel.Text = productID;
+                    productsNumberLabel.Text = productsQuantity > 0 ? productsQuantity.ToString() : "Not available";
                     productNameLabel.ForeColor = Color.White;
                     productsNumberLabel.ForeColor = Color.White;
                     p.Controls.Add(productNameLabel);
                     p.Controls.Add(productsNumberLabel);
                     productsNumberLabel.Top = productNameLabel.Top + 25;
 
-                    if (productsNumber > 0)
+                    if (productsQuantity > 0)
                         if (!reader.Read())
                         {
                             // The command returns Row(s)

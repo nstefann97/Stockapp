@@ -44,13 +44,13 @@ namespace Testing2
             //        //this.Hide();
             //        //f3.ShowDialog();
             //        //this.Close();
-            //        ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/866a9cf3-4104-48e1-ba30-cfebd6a05f74");
+            //        ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/def3ecb8-7bae-4345-8c2a-dcd9a809fc78");
             //        Process.Start(sInfo);
             //        this.Close();
             //    }
             //}
 
-
+            
             string user = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             var connectionBuilder = new SqlConnectionStringBuilder();
@@ -76,7 +76,7 @@ namespace Testing2
                 string privilege = row.Field<string>(3);
                 string validEmail = row.Field<string>(5);
 
-                if (privilege == "admin" &&
+                if (privilege == "client" &&
                     user == validUsername &&
                     password == validPassword)
                 {
@@ -88,30 +88,15 @@ namespace Testing2
                     this.Close();
                 }
 
-                if (privilege == "client" &&
+                if (privilege == "admin" &&
                     user == validUsername &&
                     password == validPassword)
                 {
-                     //ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/866a9cf3-4104-48e1-ba30-cfebd6a05f74");
-                    //Process.Start(sInfo);
-                    //this.Close();
+                    ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/def3ecb8-7bae-4345-8c2a-dcd9a809fc78");
+                    Process.Start(sInfo);
+                    this.Close();
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
