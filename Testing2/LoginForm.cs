@@ -23,36 +23,10 @@ namespace Testing2
         }
 
         private void loginButton_Click(object sender, EventArgs e)
-        {
-
-            //string username = textBox1.Text;
-            //string password = textBox2.Text;
-            //using (PrincipalContext pc = new PrincipalContext(ContextType.Domain))
-            //{
-            //    // validate the credentials
-            //    bool isValid = pc.ValidateCredentials(username, password);
-            //    if(isValid)
-            //    {
-            //        Form2 f2 = new Form2(textBox1.Text);
-            //        this.Hide();
-            //        f2.ShowDialog();
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        Form3 f3 = new Form3();
-            //        //this.Hide();
-            //        //f3.ShowDialog();
-            //        //this.Close();
-            //        ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/def3ecb8-7bae-4345-8c2a-dcd9a809fc78");
-            //        Process.Start(sInfo);
-            //        this.Close();
-            //    }
-            //}
-
-            
+        {            
             string user = usernameTextBox.Text;
             string password = passwordTextBox.Text;
+
             var connectionBuilder = new SqlConnectionStringBuilder();
             connectionBuilder.DataSource = "prjserver.database.windows.net";
             connectionBuilder.UserID = "serveradmin";
