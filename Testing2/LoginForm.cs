@@ -23,7 +23,7 @@ namespace Testing2
         }
 
         private void loginButton_Click(object sender, EventArgs e)
-        {            
+        {
             string user = usernameTextBox.Text;
             string password = passwordTextBox.Text;
 
@@ -72,14 +72,8 @@ namespace Testing2
                 }
             }
 
-
-
-
-
             ////    string que = " INSERT INTO users (Username, Password) VALUES ('"+user+"', '"+password+"');" ;
             ////Connectt.Submit_Tsql_NonQuery(connection, "Insert", que);
-
-
 
             //SqlCommand command = connection.CreateCommand();
             //SqlTransaction transaction;
@@ -99,15 +93,14 @@ namespace Testing2
             //    transaction.Commit();
             //    Console.WriteLine("Both records are written to database.");
 
-
             //    //Connectt.Submit_Tsql_NonQuery(connection, "3 - Inserts", query);
         }
-         
 
-            private void label4_Click(object sender, EventArgs e)
-            {
-                Application.Exit();
-            }
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
+
     }
+}
 

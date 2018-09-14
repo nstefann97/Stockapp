@@ -47,7 +47,6 @@ namespace Testing2
 
             foreach (DataRow row in dataTable.Rows)
             {
-
                 connectionBuilder = new SqlConnectionStringBuilder();
                 connectionBuilder.DataSource = "prjserver.database.windows.net";
                 connectionBuilder.UserID = "serveradmin";
@@ -144,7 +143,7 @@ namespace Testing2
                         {
                             if (reader.GetDateTime(3) >= DateTime.Now)
                             {
-
+                                /*delivery calendar*/
                                 MonthCalendar monthCalendar1 = new MonthCalendar();
                                 DateTime projectStart = new DateTime(reader.GetDateTime(2).Year, reader.GetDateTime(2).Month, reader.GetDateTime(2).Day);
                                 DateTime projectEnd = new DateTime(reader.GetDateTime(3).Year, reader.GetDateTime(3).Month, reader.GetDateTime(3).Day);
@@ -158,7 +157,6 @@ namespace Testing2
                                 monthCalendar1.Hide();
                                 productNameLabel.MouseEnter += new EventHandler(Calendar_MouseEnter);
                                 productNameLabel.MouseLeave += new EventHandler(Calendar_MouseLeave);
-
 
                                 Button remove = new Button();
                                 remove.Size = new Size(98, 21);

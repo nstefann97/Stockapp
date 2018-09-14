@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Testing2
 {
@@ -106,8 +107,8 @@ namespace Testing2
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-           //this.KeyDown += LoginButton_OnEnter; //if enter key is pressed, login button is virtually pressed
-            
+           
+            this.AcceptButton = loginButton;/*if enter key is pressed, login button is virtually pressed*/
             // 
             // textBox1
             // 
