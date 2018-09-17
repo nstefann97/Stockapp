@@ -1,6 +1,6 @@
 ﻿namespace Testing2
 {
-    partial class credentials
+    partial class Credentials
     {
         /// <summary>
         /// Required designer variable.

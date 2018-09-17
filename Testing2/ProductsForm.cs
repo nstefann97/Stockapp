@@ -132,9 +132,6 @@ namespace Testing2
                             //};
                             //p.Controls.Add(nup);
 
-
-
-
                             //p.Controls.Add(b1);
                             //p.Controls.Add(b2);
                             //p.Controls.Add(t);
@@ -272,8 +269,6 @@ namespace Testing2
                                         oApp = null;
 
 
-
-
                                     };
                                 }
                                 else
@@ -338,7 +333,6 @@ namespace Testing2
             //foreach (TextBox ttt in allAmounts)
             //    Console.WriteLine(ttt.Text);
 
-
             List<string> objectsReserved = new List<string>();
 
             var combined = allNames.Zip(checkboxes, (n, w) => new { Name = n, Checked = w.Checked });
@@ -351,14 +345,9 @@ namespace Testing2
             }
             //if (objectsReserved.Count>0)
             {
-                credentials cr = new credentials(objectsReserved, qs, email);
+                Credentials credentials = new Credentials(objectsReserved, qs, email);
                 //this.Hide();
-                cr.ShowDialog();
-
-
-                //  using
-
-
+                credentials.ShowDialog();
 
                 Console.Write("comanda efectuata");
                 //this.Close();
@@ -367,7 +356,6 @@ namespace Testing2
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             LoginForm newLogin = new LoginForm();
             this.Hide();
             newLogin.ShowDialog();
