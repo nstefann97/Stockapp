@@ -19,19 +19,18 @@ namespace Testing2
         public Credentials(List<string> objectsReserved, string qs, string email)
         {
             InitializeComponent();
-            button1.Click += (sender, EventArgs) => { button_Click(sender, EventArgs, objectsReserved, qs, email); };
+            confirmButton.Click += (sender, EventArgs) => { button_Click(sender, EventArgs, objectsReserved, qs, email); };
         }
         private void button_Click(object sender, EventArgs e, List<string> objectsReserved, string qs, string email)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
             using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain))
             {
                 // validate the credentials
                 bool isValid = principalContext.ValidateCredentials(username, password);
                 if (isValid)
                 {
-
                     var connectionBuilder = new SqlConnectionStringBuilder();
                     connectionBuilder.DataSource = "prjserver.database.windows.net";
                     connectionBuilder.UserID = "serveradmin";
@@ -56,7 +55,6 @@ namespace Testing2
                                 command.Connection = connection;
                                 command.ExecuteNonQuery();
                             }
-
                         }
                     }
                     this.Close();

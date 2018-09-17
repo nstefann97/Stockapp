@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,38 +65,38 @@
             // 
             // textBox1
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox1.Location = new System.Drawing.Point(45, 107);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.MaxLength = 128;
+            this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.usernameTextBox.Location = new System.Drawing.Point(45, 107);
+            this.usernameTextBox.Name = "textBox1";
+            this.usernameTextBox.Size = new System.Drawing.Size(256, 22);
+            this.usernameTextBox.TabIndex = 3;
+            this.usernameTextBox.MaxLength = 128;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(46, 190);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(255, 22);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.PasswordChar = '*';
+            this.passwordTextBox.Location = new System.Drawing.Point(46, 190);
+            this.passwordTextBox.Name = "textBox2";
+            this.passwordTextBox.Size = new System.Drawing.Size(255, 22);
+            this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.PasswordChar = '*';
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(256, 254);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.confirmButton.Location = new System.Drawing.Point(256, 254);
+            this.confirmButton.Name = "button1";
+            this.confirmButton.Size = new System.Drawing.Size(75, 23);
+            this.confirmButton.TabIndex = 5;
+            this.confirmButton.Text = "Confirm";
+            this.confirmButton.UseVisualStyleBackColor = true;
             // 
             // credentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 301);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.confirmButton);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -113,8 +113,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Button confirmButton;
     }
 }

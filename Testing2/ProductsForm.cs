@@ -65,24 +65,24 @@ namespace Testing2
                         userID + "' and IDproduct='" + row.Field<int>(2) + "';", connection);
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    Panel p = new Panel(); //what is this
-                    p.BorderStyle = BorderStyle.FixedSingle;
-                    p.Name = "panel" + counter;
-                    p.Size = new Size(120, 80);
-                    p.Location = new Point((startLeft + (counter - 1) * 160), startTop);
-                    p.BackColor = Color.Transparent;
-                    this.Controls.Add(p);
+                    Panel panel = new Panel(); //what is this
+                    panel.BorderStyle = BorderStyle.FixedSingle;
+                    panel.Name = "panel" + counter;
+                    panel.Size = new Size(120, 80);
+                    panel.Location = new Point((startLeft + (counter - 1) * 160), startTop);
+                    panel.BackColor = Color.Transparent;
+                    this.Controls.Add(panel);
 
-                    Label productNameLabel = new Label(); //l1
+                    Label productIDLabel = new Label(); //l1
                     Label productsNumberLabel = new Label(); //l2
 
-                    productNameLabel.Text = productID;
+                    productIDLabel.Text = productID;
                     productsNumberLabel.Text = productsQuantity > 0 ? productsQuantity.ToString() : "Not available";
-                    productNameLabel.ForeColor = Color.White;
+                    productIDLabel.ForeColor = Color.White;
                     productsNumberLabel.ForeColor = Color.White;
-                    p.Controls.Add(productNameLabel);
-                    p.Controls.Add(productsNumberLabel);
-                    productsNumberLabel.Top = productNameLabel.Top + 25;
+                    panel.Controls.Add(productIDLabel);
+                    panel.Controls.Add(productsNumberLabel);
+                    productsNumberLabel.Top = productIDLabel.Top + 25;
 
                     if (productsQuantity > 0)
                         if (!reader.Read())
@@ -95,17 +95,14 @@ namespace Testing2
                             //t.Location = new Point(28, 53);
                             //t.Text = "0";
                             //allAmounts.Add(t);
-
-
+                            
                             CheckBox reserve = new CheckBox();
                             reserve.Size = new Size(98, 21);
                             reserve.Location = new Point(3, 52);
                             reserve.Text = "Reserve";
                             reserve.ForeColor = Color.White;
-                            p.Controls.Add(reserve);
+                            panel.Controls.Add(reserve);
                             checkboxes.Add(reserve);
-
-
 
                             //Button b1 = new Button();
                             //b1.Size = new Size(23, 23);
@@ -152,8 +149,8 @@ namespace Testing2
 
                                 this.Controls.Add(monthCalendar1);
                                 monthCalendar1.Hide();
-                                productNameLabel.MouseEnter += new EventHandler(Calendar_MouseEnter);
-                                productNameLabel.MouseLeave += new EventHandler(Calendar_MouseLeave);
+                                productIDLabel.MouseEnter += new EventHandler(Calendar_MouseEnter);
+                                productIDLabel.MouseLeave += new EventHandler(Calendar_MouseLeave);
 
                                 Button remove = new Button();
                                 remove.Size = new Size(98, 21);
@@ -161,7 +158,7 @@ namespace Testing2
                                 remove.Text = "Cancel order";
                                 remove.ForeColor = Color.White;
                                 remove.BackColor = Color.LightSlateGray;
-                                p.Controls.Add(remove);
+                                panel.Controls.Add(remove);
                                 remove.Click += (sender, EventArgs) =>
                                   {
                                       using (var connectionRemove = new SqlConnection(connectionBuilder.ConnectionString))
@@ -179,12 +176,8 @@ namespace Testing2
                                               command.Connection = connectionRemove;
                                               command.ExecuteNonQuery();
                                           }
-
                                       }
-
-
                                   };
-
                             }
                             else
                             {
@@ -196,10 +189,9 @@ namespace Testing2
                                     confirm.Text = "Confirm";
                                     confirm.ForeColor = Color.White;
                                     confirm.BackColor = Color.LightSlateGray;
-                                    p.Controls.Add(confirm);
+                                    panel.Controls.Add(confirm);
                                     confirm.Click += (sender, EventArgs) =>
-                                    {
-
+                                    { 
                                         connectionBuilder = new SqlConnectionStringBuilder();
                                         connectionBuilder.DataSource = "prjserver.database.windows.net";
                                         connectionBuilder.UserID = "serveradmin";
@@ -245,8 +237,6 @@ namespace Testing2
                                             oMsg.Body += Message;//to be fixed
                                         }
 
-
-
                                 //Add an attachment.
                                 // TODO: change file path where appropriate
                                 //String sSource = "C:\\setupxlg.txt";
@@ -267,8 +257,6 @@ namespace Testing2
                                 //oAttach = null;
                                 oMsg = null;
                                         oApp = null;
-
-
                                     };
                                 }
                                 else
@@ -279,12 +267,10 @@ namespace Testing2
                                     nopermission.Text = "No permission";
                                     nopermission.ForeColor = Color.White;
                                     nopermission.BackColor = Color.Transparent;
-                                    p.Controls.Add(nopermission);
+                                    panel.Controls.Add(nopermission);
                                 }
                             }
                         }
-
-
                     counter++;
                 }
             }
@@ -326,7 +312,7 @@ namespace Testing2
             System.Windows.Forms.Application.Exit();
         }
 
-        private void buttonR_Click(object sender, EventArgs e, string qs, string email)
+        private void buttonR_Click(object sender, EventArgs e, string userID, string email)
         {
             //foreach (Label l in allNames)
             //    Console.WriteLine(l.Text);
@@ -345,7 +331,7 @@ namespace Testing2
             }
             //if (objectsReserved.Count>0)
             {
-                Credentials credentials = new Credentials(objectsReserved, qs, email);
+                Credentials credentials = new Credentials(objectsReserved, userID, email);
                 //this.Hide();
                 credentials.ShowDialog();
 
@@ -353,7 +339,6 @@ namespace Testing2
                 //this.Close();
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             LoginForm newLogin = new LoginForm();
