@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing2", "Testing2\Testing2.csproj", "{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup2", "Setup2\Setup2.vdproj", "{5C91527C-42B2-459B-A729-5C34A129E92A}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "StockAppInstaller", "StockAppInstaller\StockAppInstaller.vdproj", "{D5EC25EB-C7A0-45C0-823E-65F6EA29EFE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C91527C-42B2-459B-A729-5C34A129E92A}.Debug|Any CPU.ActiveCfg = Debug
-		{5C91527C-42B2-459B-A729-5C34A129E92A}.Release|Any CPU.ActiveCfg = Release
+		{D5EC25EB-C7A0-45C0-823E-65F6EA29EFE5}.Debug|Any CPU.ActiveCfg = Debug
+		{D5EC25EB-C7A0-45C0-823E-65F6EA29EFE5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

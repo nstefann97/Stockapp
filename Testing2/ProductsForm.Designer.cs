@@ -117,7 +117,7 @@
             // 
             this.exitIconLabel.AutoSize = true;
             this.exitIconLabel.BackColor = System.Drawing.Color.Transparent;
-            this.exitIconLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.exitIconLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.exitIconLabel.Location = new System.Drawing.Point(30, 547);
             this.exitIconLabel.Name = "exitIconLabel";
             this.exitIconLabel.Size = new System.Drawing.Size(619, 17);
@@ -137,6 +137,7 @@
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.usernameLabel);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductsForm";

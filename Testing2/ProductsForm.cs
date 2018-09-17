@@ -69,7 +69,7 @@ namespace Testing2
                     panel.BorderStyle = BorderStyle.FixedSingle;
                     panel.Name = "panel" + counter;
                     panel.Size = new Size(120, 80);
-                    panel.Location = new Point((startLeft + (counter - 1) * 160), startTop);
+                    panel.Location = new Point((startLeft + (counter - 1)%3 * 160), startTop+((counter-1)/3)*100);
                     panel.BackColor = Color.Transparent;
                     this.Controls.Add(panel);
 
