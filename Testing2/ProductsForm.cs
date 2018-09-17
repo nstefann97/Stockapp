@@ -78,8 +78,8 @@ namespace Testing2
 
                     productIDLabel.Text = productID;
                     productsNumberLabel.Text = productsQuantity > 0 ? productsQuantity.ToString() : "Not available";
-                    productIDLabel.ForeColor = Color.White;
-                    productsNumberLabel.ForeColor = Color.White;
+                    productIDLabel.ForeColor = Color.Black;
+                    productsNumberLabel.ForeColor = Color.Black;
                     panel.Controls.Add(productIDLabel);
                     panel.Controls.Add(productsNumberLabel);
                     productsNumberLabel.Top = productIDLabel.Top + 25;
@@ -100,7 +100,7 @@ namespace Testing2
                             reserve.Size = new Size(98, 21);
                             reserve.Location = new Point(3, 52);
                             reserve.Text = "Reserve";
-                            reserve.ForeColor = Color.White;
+                            reserve.ForeColor = Color.Black;
                             panel.Controls.Add(reserve);
                             checkboxes.Add(reserve);
 
@@ -157,7 +157,7 @@ namespace Testing2
                                 remove.Location = new Point(3, 52);
                                 remove.Text = "Cancel order";
                                 remove.ForeColor = Color.White;
-                                remove.BackColor = Color.LightSlateGray;
+                                remove.BackColor = Color.Black;
                                 panel.Controls.Add(remove);
                                 remove.Click += (sender, EventArgs) =>
                                   {
@@ -188,7 +188,7 @@ namespace Testing2
                                     confirm.Location = new Point(3, 52);
                                     confirm.Text = "Confirm";
                                     confirm.ForeColor = Color.White;
-                                    confirm.BackColor = Color.LightSlateGray;
+                                    confirm.BackColor = Color.Black;
                                     panel.Controls.Add(confirm);
                                     confirm.Click += (sender, EventArgs) =>
                                     { 
@@ -265,7 +265,7 @@ namespace Testing2
                                     nopermission.Size = new Size(98, 21);
                                     nopermission.Location = new Point(3, 52);
                                     nopermission.Text = "No permission";
-                                    nopermission.ForeColor = Color.White;
+                                    nopermission.ForeColor = Color.Black;
                                     nopermission.BackColor = Color.Transparent;
                                     panel.Controls.Add(nopermission);
                                 }

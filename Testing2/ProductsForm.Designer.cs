@@ -40,26 +40,26 @@
             this.exitIconLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.usernameLabel.Location = new System.Drawing.Point(205, 56);
-            this.usernameLabel.Name = "label1";
+            this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(141, 32);
             this.usernameLabel.TabIndex = 0;
             this.usernameLabel.Text = "Welcome,";
             // 
-            // label2
+            // welcomeLabel
             // 
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.welcomeLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.welcomeLabel.Location = new System.Drawing.Point(343, 56);
-            this.welcomeLabel.Name = "label2";
+            this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(93, 32);
             this.welcomeLabel.TabIndex = 1;
             this.welcomeLabel.Text = "label2";
@@ -89,13 +89,13 @@
             this.bunifuDragControl1.TargetControl = this;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // button1
+            // loginButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.loginButton.BackColor = System.Drawing.Color.Black;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.loginButton.Location = new System.Drawing.Point(285, 475);
-            this.loginButton.Name = "button1";
+            this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(151, 54);
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Request";
@@ -103,7 +103,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button2.BackColor = System.Drawing.Color.Black;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
             this.button2.Location = new System.Drawing.Point(548, 9);
             this.button2.Name = "button2";
@@ -113,19 +113,19 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label4
+            // exitIconLabel
             // 
             this.exitIconLabel.AutoSize = true;
             this.exitIconLabel.BackColor = System.Drawing.Color.Transparent;
-            this.exitIconLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.exitIconLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.exitIconLabel.Location = new System.Drawing.Point(30, 547);
-            this.exitIconLabel.Name = "label4";
+            this.exitIconLabel.Name = "exitIconLabel";
             this.exitIconLabel.Size = new System.Drawing.Size(619, 17);
             this.exitIconLabel.TabIndex = 6;
             this.exitIconLabel.Text = "If you no longer see certain products, you either requested them or you don\'t hav" +
     "e acces to them";
             // 
-            // Form2
+            // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,7 +139,7 @@
             this.Controls.Add(this.usernameLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form2";
+            this.Name = "ProductsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
