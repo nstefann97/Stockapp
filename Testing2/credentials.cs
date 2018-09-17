@@ -41,9 +41,7 @@ namespace Testing2
                     using (var connection = new SqlConnection(connectionBuilder.ConnectionString))
                     {
                         connection.Open();
-
                         foreach (string productName in objectsReserved)
-
                         {
                             using (DbCommand command = new SqlCommand("Insert into bookings (IDuser,IDproduct,reservationDate,deliveryDate,location,confirmation" +/*, username*/")"+
                                 " values ('" + qs + "','" + productName + "',getDate(), getDate() + 3,'Galati', 0);"))/* +
@@ -60,10 +58,7 @@ namespace Testing2
                             }
 
                         }
-
                     }
-
-
                     this.Close();
                 }
                 else
