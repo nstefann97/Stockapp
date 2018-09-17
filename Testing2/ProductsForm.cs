@@ -43,7 +43,7 @@ namespace Testing2
             int startLeft = 43;
             int startTop = 98;
             int validationOfCheckings = 0;
-            loginButton.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, userID, email); };
+            loginButton.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, userID, username, email); };
 
             foreach (DataRow row in dataTable.Rows)
             {
@@ -312,7 +312,7 @@ namespace Testing2
             System.Windows.Forms.Application.Exit();
         }
 
-        private void buttonR_Click(object sender, EventArgs e, string userID, string email)
+        private void buttonR_Click(object sender, EventArgs e, string userID, string username, string email)
         {
             //foreach (Label l in allNames)
             //    Console.WriteLine(l.Text);
@@ -331,7 +331,7 @@ namespace Testing2
             }
             //if (objectsReserved.Count>0)
             {
-                Credentials credentials = new Credentials(objectsReserved, userID, email);
+                Credentials credentials = new Credentials(objectsReserved, userID, username, email);
                 //this.Hide();
                 credentials.ShowDialog();
 

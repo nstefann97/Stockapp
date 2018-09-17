@@ -16,19 +16,19 @@ namespace Testing2
 {
     public partial class Credentials : Form
     {
-        public Credentials(List<string> objectsReserved, string qs, string email)
+        public Credentials(List<string> objectsReserved, string userID, string username, string email)
         {
             InitializeComponent();
-            confirmButton.Click += (sender, EventArgs) => { button_Click(sender, EventArgs, objectsReserved, qs, email); };
+            confirmButton.Click += (sender, EventArgs) => { button_Click(sender, EventArgs, objectsReserved, userID, username, email); };
         }
-        private void button_Click(object sender, EventArgs e, List<string> objectsReserved, string qs, string email)
+        private void button_Click(object sender, EventArgs e, List<string> objectsReserved, string qs,string username, string email)
         {
-            string username = usernameTextBox.Text;
+            string enteredEmail = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain))
             {
                 // validate the credentials
-                bool isValid = principalContext.ValidateCredentials(username, password);
+                bool isValid = principalContext.ValidateCredentials(enteredEmail, password);
                 if (isValid)
                 {
                     var connectionBuilder = new SqlConnectionStringBuilder();
@@ -42,9 +42,10 @@ namespace Testing2
                         connection.Open();
                         foreach (string productName in objectsReserved)
                         {
-                            using (DbCommand command = new SqlCommand("Insert into bookings (IDuser,IDproduct,reservationDate,deliveryDate,location,confirmation" +/*, username*/")"+
-                                " values ('" + qs + "','" + productName + "',getDate(), getDate() + 3,'Galati', 0);"))/* +
-                                " (select top 1 username from users where (select top 1 IDuser from bookings order by bookings.reservationDate desc) = users.userID"))*/
+                            using (DbCommand command = new SqlCommand("Insert into bookings (IDuser,IDproduct,reservationDate,deliveryDate,location,confirmation, username)"
+                                + " values ('" + qs + "','" + productName + "',getDate(), getDate() + 3,'Galati', 0, '" + username + "');"))
+                            /* +
+                            " (select top 1 username from users where (select top 1 IDuser from bookings order by bookings.reservationDate desc) = users.userID"))*/
                             {
                                 command.Connection = connection;
                                 command.ExecuteNonQuery();
