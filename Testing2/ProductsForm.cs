@@ -70,7 +70,7 @@ namespace Testing2
                     panel.Name = "panel" + counter;
                     panel.Size = new Size(120, 80);
                     panel.Location = new Point((startLeft + (counter - 1)%3 * 160), startTop+((counter-1)/3)*100);
-                    panel.BackColor = Color.Transparent;
+                    panel.BackColor = Color.Black;
                     this.Controls.Add(panel);
 
                     Label productIDLabel = new Label(); //l1
@@ -78,8 +78,8 @@ namespace Testing2
 
                     productIDLabel.Text = productID;
                     productsNumberLabel.Text = productsQuantity > 0 ? productsQuantity.ToString() : "Not available";
-                    productIDLabel.ForeColor = Color.Black;
-                    productsNumberLabel.ForeColor = Color.Black;
+                    productIDLabel.ForeColor = Color.White;
+                    productsNumberLabel.ForeColor = Color.White;
                     panel.Controls.Add(productIDLabel);
                     panel.Controls.Add(productsNumberLabel);
                     productsNumberLabel.Top = productIDLabel.Top + 25;
@@ -100,7 +100,7 @@ namespace Testing2
                             reserve.Size = new Size(98, 21);
                             reserve.Location = new Point(3, 52);
                             reserve.Text = "Reserve";
-                            reserve.ForeColor = Color.Black;
+                            reserve.ForeColor = Color.White;
                             panel.Controls.Add(reserve);
                             checkboxes.Add(reserve);
 
@@ -146,9 +146,11 @@ namespace Testing2
                                 monthCalendar1.SelectionEnd = projectEnd;
                                 monthCalendar1.Left = (this.ClientSize.Width - monthCalendar1.Width) / 2;
                                 monthCalendar1.Top = (this.ClientSize.Height - monthCalendar1.Height) / 2;
+                                
 
                                 this.Controls.Add(monthCalendar1);
                                 monthCalendar1.Hide();
+                                monthCalendar1.Parent.Controls.SetChildIndex(monthCalendar1, 1);
                                 productIDLabel.MouseEnter += new EventHandler(Calendar_MouseEnter);
                                 productIDLabel.MouseLeave += new EventHandler(Calendar_MouseLeave);
 
@@ -156,8 +158,8 @@ namespace Testing2
                                 remove.Size = new Size(98, 21);
                                 remove.Location = new Point(3, 52);
                                 remove.Text = "Cancel order";
-                                remove.ForeColor = Color.White;
-                                remove.BackColor = Color.Black;
+                                remove.ForeColor = Color.Black;
+                                remove.BackColor = Color.White;
                                 panel.Controls.Add(remove);
                                 remove.Click += (sender, EventArgs) =>
                                   {
@@ -187,8 +189,8 @@ namespace Testing2
                                     confirm.Size = new Size(98, 21);
                                     confirm.Location = new Point(3, 52);
                                     confirm.Text = "Confirm";
-                                    confirm.ForeColor = Color.White;
-                                    confirm.BackColor = Color.Black;
+                                    confirm.ForeColor = Color.Black;
+                                    confirm.BackColor = Color.White;
                                     panel.Controls.Add(confirm);
                                     confirm.Click += (sender, EventArgs) =>
                                     { 
@@ -265,7 +267,7 @@ namespace Testing2
                                     nopermission.Size = new Size(98, 21);
                                     nopermission.Location = new Point(3, 52);
                                     nopermission.Text = "No permission";
-                                    nopermission.ForeColor = Color.Black;
+                                    nopermission.ForeColor = Color.White;
                                     nopermission.BackColor = Color.Transparent;
                                     panel.Controls.Add(nopermission);
                                 }
