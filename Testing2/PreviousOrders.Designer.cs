@@ -85,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Testing2.Properties.Resources.PreviewImage__3_;
+            this.BackgroundImage = global::Testing2.Properties.Resources.PreviewImage__4_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(631, 397);
             this.Controls.Add(this.orders);

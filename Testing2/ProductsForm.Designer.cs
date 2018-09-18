@@ -95,7 +95,7 @@
             this.loginButton.BackColor = System.Drawing.Color.SteelBlue;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.loginButton.Location = new System.Drawing.Point(303, 490);
+            this.loginButton.Location = new System.Drawing.Point(349, 490);
             this.loginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(151, 54);
@@ -121,7 +121,7 @@
             this.exitIconLabel.AutoSize = true;
             this.exitIconLabel.BackColor = System.Drawing.Color.Transparent;
             this.exitIconLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.exitIconLabel.Location = new System.Drawing.Point(27, 546);
+            this.exitIconLabel.Location = new System.Drawing.Point(26, 555);
             this.exitIconLabel.Name = "exitIconLabel";
             this.exitIconLabel.Size = new System.Drawing.Size(619, 17);
             this.exitIconLabel.TabIndex = 6;
@@ -132,7 +132,7 @@
             // 
             this.prevOrders.BackColor = System.Drawing.Color.SteelBlue;
             this.prevOrders.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.prevOrders.Location = new System.Drawing.Point(177, 498);
+            this.prevOrders.Location = new System.Drawing.Point(216, 498);
             this.prevOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.prevOrders.Name = "prevOrders";
             this.prevOrders.Size = new System.Drawing.Size(109, 42);
