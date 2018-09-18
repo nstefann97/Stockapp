@@ -37,7 +37,6 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.loginButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.exitIconLabel = new System.Windows.Forms.Label();
             this.prevOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,9 +46,10 @@
             this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.usernameLabel.Location = new System.Drawing.Point(185, 54);
+            this.usernameLabel.Location = new System.Drawing.Point(139, 44);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(153, 33);
+            this.usernameLabel.Size = new System.Drawing.Size(129, 29);
             this.usernameLabel.TabIndex = 0;
             this.usernameLabel.Text = "Welcome,";
             // 
@@ -59,9 +59,10 @@
             this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.welcomeLabel.Location = new System.Drawing.Point(343, 57);
+            this.welcomeLabel.Location = new System.Drawing.Point(257, 46);
+            this.welcomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(93, 32);
+            this.welcomeLabel.Size = new System.Drawing.Size(70, 26);
             this.welcomeLabel.TabIndex = 1;
             this.welcomeLabel.Text = "label2";
             // 
@@ -71,9 +72,10 @@
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(631, 9);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(473, 7);
+            this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(30, 29);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(24, 24);
             this.bunifuCustomLabel1.TabIndex = 2;
             this.bunifuCustomLabel1.Text = "X";
             this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
@@ -95,10 +97,10 @@
             this.loginButton.BackColor = System.Drawing.Color.SteelBlue;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.loginButton.Location = new System.Drawing.Point(349, 490);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loginButton.Location = new System.Drawing.Point(262, 398);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(151, 54);
+            this.loginButton.Size = new System.Drawing.Size(113, 44);
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Request";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -107,48 +109,35 @@
             // 
             this.button2.BackColor = System.Drawing.Color.SteelBlue;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(548, 9);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(411, 7);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 26);
+            this.button2.Size = new System.Drawing.Size(58, 21);
             this.button2.TabIndex = 4;
             this.button2.Text = "Sign out";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // exitIconLabel
-            // 
-            this.exitIconLabel.AutoSize = true;
-            this.exitIconLabel.BackColor = System.Drawing.Color.Transparent;
-            this.exitIconLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.exitIconLabel.Location = new System.Drawing.Point(26, 555);
-            this.exitIconLabel.Name = "exitIconLabel";
-            this.exitIconLabel.Size = new System.Drawing.Size(619, 17);
-            this.exitIconLabel.TabIndex = 6;
-            this.exitIconLabel.Text = "If you no longer see certain products, you either requested them or you don\'t hav" +
-    "e acces to them";
-            // 
             // prevOrders
             // 
             this.prevOrders.BackColor = System.Drawing.Color.SteelBlue;
             this.prevOrders.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.prevOrders.Location = new System.Drawing.Point(216, 498);
-            this.prevOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.prevOrders.Location = new System.Drawing.Point(162, 405);
+            this.prevOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.prevOrders.Name = "prevOrders";
-            this.prevOrders.Size = new System.Drawing.Size(109, 42);
+            this.prevOrders.Size = new System.Drawing.Size(82, 34);
             this.prevOrders.TabIndex = 7;
             this.prevOrders.Text = "View previous orders";
             this.prevOrders.UseVisualStyleBackColor = false;
             // 
             // ProductsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(673, 581);
+            this.ClientSize = new System.Drawing.Size(505, 472);
             this.Controls.Add(this.prevOrders);
-            this.Controls.Add(this.exitIconLabel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -157,7 +146,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ProductsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
@@ -175,7 +164,6 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label exitIconLabel;
         private System.Windows.Forms.Button prevOrders;
     }
 }
