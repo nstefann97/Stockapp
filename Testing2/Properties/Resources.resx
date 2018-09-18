@@ -124,10 +124,13 @@
   <data name="Clients_Microsoft_Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clients_Microsoft_Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PreviewImage (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PreviewImage (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Clients_Microsoft_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clients_Microsoft_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PreviewImage (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PreviewImage (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PreviewImage (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PreviewImage (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
