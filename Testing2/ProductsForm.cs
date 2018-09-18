@@ -45,6 +45,8 @@ namespace Testing2
             int validationOfCheckings = 0;
             loginButton.Click += (sender, EventArgs) => { buttonR_Click(sender, EventArgs, userID, username, email); };
 
+            prevOrders.Click += (sender, EventArgs) => { prevOrders_Click(sender, EventArgs, userID); };
+
             foreach (DataRow row in dataTable.Rows)
             {
                 connectionBuilder = new SqlConnectionStringBuilder();
@@ -70,7 +72,7 @@ namespace Testing2
                     panel.Name = "panel" + counter;
                     panel.Size = new Size(120, 80);
                     panel.Location = new Point((startLeft + (counter - 1)%3 * 160), startTop+((counter-1)/3)*100);
-                    panel.BackColor = Color.Black;
+                    panel.BackColor = Color.FromArgb(35, panel.BackColor);
                     this.Controls.Add(panel);
 
                     Label productIDLabel = new Label(); //l1
@@ -179,6 +181,10 @@ namespace Testing2
                                               command.ExecuteNonQuery();
                                           }
                                       }
+                                      ProductsForm refresh = new ProductsForm(username,userID,email);
+                                      this.Hide();
+                                      refresh.ShowDialog();
+                                      this.Close();
                                   };
                             }
                             else
@@ -259,6 +265,11 @@ namespace Testing2
                                 //oAttach = null;
                                 oMsg = null;
                                         oApp = null;
+
+                                        ProductsForm refresh = new ProductsForm(username, userID, email);
+                                        this.Hide();
+                                        refresh.ShowDialog();
+                                        this.Close();
                                     };
                                 }
                                 else
@@ -337,7 +348,12 @@ namespace Testing2
                 //this.Hide();
                 credentials.ShowDialog();
 
-                Console.Write("comanda efectuata");
+                ProductsForm refresh = new ProductsForm(username, userID, email);
+                this.Hide();
+                refresh.ShowDialog();
+                this.Close();
+
+                //Console.Write("comanda efectuata");
                 //this.Close();
             }
         }
@@ -348,6 +364,14 @@ namespace Testing2
             newLogin.ShowDialog();
             this.Close();
 
+        }
+
+        private void prevOrders_Click(object sender, EventArgs e,string userID)
+        {
+            PreviousOrders prevO = new PreviousOrders(userID);
+            this.Hide();
+            prevO.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Testing2
                         foreach (string productName in objectsReserved)
                         {
                             using (DbCommand command = new SqlCommand("Insert into bookings (IDuser,IDproduct,reservationDate,deliveryDate,location,confirmation, username)"
-                                + " values ('" + qs + "','" + productName + "',getDate(), getDate() + 3,'Galati', 0, '" + username + "');"))
+                                + " values ('" + qs + "','" + productName + "',getDate()-3, getDate() ,'Galati', 0, '" + username + "');"))
                             /* +
                             " (select top 1 username from users where (select top 1 IDuser from bookings order by bookings.reservationDate desc) = users.userID"))*/
                             {

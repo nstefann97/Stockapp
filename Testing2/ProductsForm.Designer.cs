@@ -38,6 +38,7 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.exitIconLabel = new System.Windows.Forms.Label();
+            this.prevOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameLabel
@@ -94,7 +95,7 @@
             this.loginButton.BackColor = System.Drawing.Color.Black;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.loginButton.Location = new System.Drawing.Point(285, 475);
+            this.loginButton.Location = new System.Drawing.Point(325, 490);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(151, 54);
             this.loginButton.TabIndex = 3;
@@ -125,6 +126,17 @@
             this.exitIconLabel.Text = "If you no longer see certain products, you either requested them or you don\'t hav" +
     "e acces to them";
             // 
+            // prevOrders
+            // 
+            this.prevOrders.BackColor = System.Drawing.Color.Black;
+            this.prevOrders.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.prevOrders.Location = new System.Drawing.Point(179, 498);
+            this.prevOrders.Name = "prevOrders";
+            this.prevOrders.Size = new System.Drawing.Size(109, 42);
+            this.prevOrders.TabIndex = 7;
+            this.prevOrders.Text = "View previous orders";
+            this.prevOrders.UseVisualStyleBackColor = false;
+            // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,6 +144,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(673, 581);
+            this.Controls.Add(this.prevOrders);
             this.Controls.Add(this.exitIconLabel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.loginButton);
@@ -159,5 +172,6 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label exitIconLabel;
+        private System.Windows.Forms.Button prevOrders;
     }
 }
