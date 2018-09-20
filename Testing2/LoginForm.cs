@@ -101,6 +101,11 @@ namespace Testing2
             Application.Exit();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://web.powerapps.com/apps/4a94d8de-8403-4c11-8271-0510e69b9209");
+            Process.Start(sInfo);
+        }
     }
 }
 

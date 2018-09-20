@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing2", "Testing2\Testing2.csproj", "{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Microsoft Stock Installer", "Microsoft Stock Installer\Microsoft Stock Installer.vdproj", "{F7A8AC87-6223-480E-842C-0298D9AB4593}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Microsoft Stock Installer", "Microsoft Stock Installer\Microsoft Stock Installer.vdproj", "{5DE9B4CC-5D9C-4751-AF2C-F7B49C3C236F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A88D8E9-03B0-4BD6-935E-42F8B97A6487}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7A8AC87-6223-480E-842C-0298D9AB4593}.Debug|Any CPU.ActiveCfg = Debug
-		{F7A8AC87-6223-480E-842C-0298D9AB4593}.Release|Any CPU.ActiveCfg = Release
+		{5DE9B4CC-5D9C-4751-AF2C-F7B49C3C236F}.Debug|Any CPU.ActiveCfg = Debug
+		{5DE9B4CC-5D9C-4751-AF2C-F7B49C3C236F}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
