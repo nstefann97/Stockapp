@@ -28,7 +28,7 @@ namespace Testing2
             using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain))
             {
                 // validate the credentials
-                bool isValid = principalContext.ValidateCredentials(enteredEmail, password);
+                bool isValid = principalContext.ValidateCredentials(enteredEmail, password, ContextOptions.Negotiate);
                 if (isValid)
                 {
                     var connectionBuilder = new SqlConnectionStringBuilder();
