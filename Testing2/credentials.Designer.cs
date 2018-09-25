@@ -34,6 +34,7 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.confirmButton = new System.Windows.Forms.Button();
+            this.wrong = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -63,44 +64,55 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Password";
             // 
-            // textBox1
+            // usernameTextBox
             // 
             this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.usernameTextBox.Location = new System.Drawing.Point(45, 107);
-            this.usernameTextBox.Name = "textBox1";
+            this.usernameTextBox.MaxLength = 128;
+            this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(256, 22);
             this.usernameTextBox.TabIndex = 3;
-            this.usernameTextBox.MaxLength = 128;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
             // 
-            // textBox2
+            // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(46, 190);
-            this.passwordTextBox.Name = "textBox2";
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(255, 22);
             this.passwordTextBox.TabIndex = 4;
-            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
-            // button1
+            // confirmButton
             // 
             this.confirmButton.Location = new System.Drawing.Point(256, 254);
-            this.confirmButton.Name = "button1";
+            this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(75, 23);
             this.confirmButton.TabIndex = 5;
             this.confirmButton.Text = "Confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
             // 
-            // credentials
+            // wrong
+            // 
+            this.wrong.AutoSize = true;
+            this.wrong.Location = new System.Drawing.Point(43, 227);
+            this.wrong.Name = "wrong";
+            this.wrong.Size = new System.Drawing.Size(0, 17);
+            this.wrong.TabIndex = 6;
+            // 
+            // Credentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 301);
+            this.Controls.Add(this.wrong);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "credentials";
+            this.Name = "Credentials";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "credentials";
             this.ResumeLayout(false);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button confirmButton;
+        private System.Windows.Forms.Label wrong;
     }
 }

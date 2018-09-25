@@ -62,9 +62,24 @@ namespace Testing2
                 }
                 else
                 {
-                    System.Windows.Forms.Application.Exit();
+                    wrong.Text = "Wrong username or password";
+                    wrong.ForeColor = Color.Red;
+                    passwordTextBox.ForeColor = Color.Red;
+                    usernameTextBox.ForeColor = Color.Red;
                 }
             }
+        }
+
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            usernameTextBox.ForeColor = Color.Black;
+            wrong.Text = " ";
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordTextBox.ForeColor = Color.Black;
+            wrong.Text = " ";
         }
     }
 }
