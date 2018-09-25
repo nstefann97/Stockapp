@@ -79,7 +79,7 @@ namespace Testing2
                     Label productsNumberLabel = new Label(); //l2
 
                     productIDLabel.Text = productID;
-                    productsNumberLabel.Text = productsQuantity > 0 ? "Available quantity: "+productsQuantity.ToString() : "Not available";
+                    productsNumberLabel.Text = productsQuantity > 0 ? "Quantity: "+productsQuantity.ToString() : "Not available";
                     productIDLabel.ForeColor = Color.White;
                     productsNumberLabel.ForeColor = Color.White;
                     panel.Controls.Add(productIDLabel);
