@@ -198,6 +198,9 @@ namespace Testing2
                                     confirm.ForeColor = Color.Black;
                                     confirm.BackColor = Color.White;
                                     panel.Controls.Add(confirm);
+
+
+                                    
                                     confirm.Click += (sender, EventArgs) =>
                                     { 
                                         connectionBuilder = new SqlConnectionStringBuilder();
@@ -219,52 +222,52 @@ namespace Testing2
                                                 commandUpdate.ExecuteNonQuery();
                                             }
                                         }
-                                // Create the Outlook application by using inline initialization.
-                                Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
+                                //// Create the Outlook application by using inline initialization.
+                                //Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
 
-                                //Create the new message by using the simplest approach.
-                                Microsoft.Office.Interop.Outlook.MailItem oMsg = (MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                                ////Create the new message by using the simplest approach.
+                                //Microsoft.Office.Interop.Outlook.MailItem oMsg = (MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
-                                //Add a recipient.
-                                // TODO: Change the following recipient where appropriate.
-                                Microsoft.Office.Interop.Outlook.Recipient oRecip = (Microsoft.Office.Interop.Outlook.Recipient)oMsg.Recipients.Add("t-stnast@microsoft.com");
-                                        oRecip.Resolve();
+                                ////Add a recipient.
+                                //// TODO: Change the following recipient where appropriate.
+                                //Microsoft.Office.Interop.Outlook.Recipient oRecip = (Microsoft.Office.Interop.Outlook.Recipient)oMsg.Recipients.Add("t-stnast@microsoft.com");
+                                //        oRecip.Resolve();
 
-                                //Set the basic properties.
-                                oMsg.Subject = "Confirmation";
-                                        oMsg.Body = "This is a confirmation regarding the reservation of " + System.Environment.NewLine;
+                                ////Set the basic properties.
+                                //oMsg.Subject = "Confirmation";
+                                //        oMsg.Body = "The employee, picked up his order. This is a confirmation for the admin regarding the reservation of " + System.Environment.NewLine;
 
-                                        using (var connection2 = new SqlConnection(connectionBuilder.ConnectionString))
-                                        {
-                                            connection2.Open();
+                                //        using (var connection2 = new SqlConnection(connectionBuilder.ConnectionString))
+                                //        {
+                                //            connection2.Open();
 
-                                            SqlCommand cmd2 = new SqlCommand("select productName from products where productID='" + row.Field<int>(2) + "';", connection2);
-                                            SqlDataReader reader2 = cmd2.ExecuteReader();
-                                            reader2.Read();
-                                            string Message = "- " + reader2.GetString(0) + System.Environment.NewLine;
-                                            oMsg.Body += Message;//to be fixed
-                                        }
+                                //            SqlCommand cmd2 = new SqlCommand("select productName from products where productID='" + row.Field<int>(2) + "';", connection2);
+                                //            SqlDataReader reader2 = cmd2.ExecuteReader();
+                                //            reader2.Read();
+                                //            string Message = "- " + reader2.GetString(0) + System.Environment.NewLine;
+                                //            oMsg.Body += Message;//to be fixed
+                                //        }
 
-                                //Add an attachment.
-                                // TODO: change file path where appropriate
-                                //String sSource = "C:\\setupxlg.txt";
-                                //String sDisplayName = "MyFirstAttachment";
-                                //int iPosition = (int)oMsg.Body.Length + 1;
-                                //int iAttachType = (int)Outlook.OlAttachmentType.olByValue;
-                                //Microsoft.Office.Interop.Outlook.Attachment oAttach = oMsg.Attachments.Add(sSource, iAttachType, iPosition, sDisplayName);
+                                ////Add an attachment.
+                                //// TODO: change file path where appropriate
+                                ////String sSource = "C:\\setupxlg.txt";
+                                ////String sDisplayName = "MyFirstAttachment";
+                                ////int iPosition = (int)oMsg.Body.Length + 1;
+                                ////int iAttachType = (int)Outlook.OlAttachmentType.olByValue;
+                                ////Microsoft.Office.Interop.Outlook.Attachment oAttach = oMsg.Attachments.Add(sSource, iAttachType, iPosition, sDisplayName);
 
-                                // If you want to, display the message.
-                                // oMsg.Display(true);  //modal
+                                //// If you want to, display the message.
+                                //// oMsg.Display(true);  //modal
 
-                                //Send the message.
-                                oMsg.Save();
-                                        oMsg.Send();
+                                ////Send the message.
+                                //oMsg.Save();
+                                //        oMsg.Send();
 
-                                //Explicitly release objects.
-                                oRecip = null;
-                                //oAttach = null;
-                                oMsg = null;
-                                        oApp = null;
+                                ////Explicitly release objects.
+                                //oRecip = null;
+                                ////oAttach = null;
+                                //oMsg = null;
+                                //        oApp = null;
 
                                         ProductsForm refresh = new ProductsForm(username, userID, email);
                                         this.Hide();
